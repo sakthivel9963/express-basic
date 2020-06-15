@@ -1,0 +1,36 @@
+{
+  "name": "express-basic",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/**",
+    "lint:fix": "eslint src/** --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakthivel9963/express-basic.git"
+  },
+  "keywords": [],
+  "author": "sakthivel <sakthivel9963@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sakthivel9963/express-basic/issues"
+  },
+  "homepage": "https://github.com/sakthivel9963/express-basic#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "nodemon": "^2.0.4"
+  }
+}
