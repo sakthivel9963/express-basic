@@ -11,9 +11,7 @@ function errorHandler(error, req, res, next) {
   console.error(error);
   const { message, stack } = error;
   const status = res.statusCode === 200 ? 500 : res.statusCode;
-  logger.error(
-    `${status} - ${error.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`
-  );
+  logger.error(`${status} - ${req.originalUrl} - ${message} - ${stack} `);
   res.status(status).json({
     message,
     status,
