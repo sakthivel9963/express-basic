@@ -20,7 +20,7 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('combined', { stream: winston.stream }));
 
-app.use(router);
+app.use('/api/v1', router);
 
 app.use(notFound);
 app.use(errorHandler);

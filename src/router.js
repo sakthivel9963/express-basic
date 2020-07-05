@@ -9,6 +9,6 @@ router.get('/ping', (req, res) => {
   });
 });
 
-router.use('/api/example', exampleRouter);
+router.use('/example', exampleRouter);
 
 module.exports = router;
