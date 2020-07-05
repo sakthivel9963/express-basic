@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 const favicon = require('serve-favicon');
 const router = require('./router');
-const { notFound, errorHandler } = require('./middleware/utils');
+const { notFound, errorHandler } = require('./middleware/defaults');
 require('dotenv').config();
 const winston = require('./middleware/winston');
 
