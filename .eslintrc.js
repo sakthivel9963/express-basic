@@ -8,5 +8,16 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 11,
   },
-  rules: {},
+  rules: {
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'never',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
+  },
 };
