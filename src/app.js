@@ -1,26 +1,27 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const path = require('path');
-const router = require('./router');
-const { notFound, errorHandler } = require('./middleware/defaults');
-require('dotenv').config();
-const winston = require('./middleware/winston');
+import express, { json, urlencoded } from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import { join } from 'path';
+import dotenv from 'dotenv';
+import router from './router';
+import { notFound, errorHandler, __dirname } from './middleware/defaults';
+import logger from './middleware/winston';
 
+dotenv.config();
 const app = express();
 
-app.use('/', express.static(path.join(__dirname, '../public')));
+app.use('/', express.static(join(__dirname, '../public')));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet());
-app.use(morgan('combined', { stream: winston.stream }));
+app.use(morgan('combined', { stream: logger.stream }));
 
 app.use('/api/v1', router);
 
 app.use(notFound);
 app.use(errorHandler);
 
-module.exports = app;
+export default app;

@@ -1,6 +1,8 @@
-const router = require('express').Router();
+import express from 'express';
 
-const exampleRouter = require('./api/example/example.router');
+import exampleRouter from './api/example/example.contoller';
+
+const router = express.Router();
 
 router.get('/ping', (req, res) => {
   res.json({
@@ -11,4 +13,4 @@ router.get('/ping', (req, res) => {
 
 router.use('/example', exampleRouter);
 
-module.exports = router;
+export default router;

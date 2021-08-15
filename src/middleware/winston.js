@@ -1,7 +1,11 @@
-const winston = require('winston');
-const path = require('path');
+import path, { join } from 'path';
+import winston from 'winston';
+import { fileURLToPath } from 'url';
 
-const rootDir = path.join(__dirname, '../../');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const rootDir = join(__dirname, '../../');
 const currentDate = new Date();
 const formattedDate = `${
   currentDate.getMonth() + 1
@@ -50,4 +54,4 @@ logger.stream = {
   },
 };
 
-module.exports = logger;
+export default logger;

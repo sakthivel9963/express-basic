@@ -1,13 +1,14 @@
-const logger = require('./winston');
+import { fileURLToPath } from 'url';
+import path, { join } from 'path';
+import logger from './winston';
 
-function notFound(req, res, next) {
+export const notFound = (req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);
   res.status(404);
   next(error);
-}
+};
 
-// eslint-disable-next-line no-unused-vars
-function errorHandler(error, req, res, next) {
+export const errorHandler = (error, req, res, next) => {
   // eslint-disable-next-line no-console
   console.error(error);
   const { message, stack } = error;
@@ -18,9 +19,7 @@ function errorHandler(error, req, res, next) {
     status,
     stack: process.env.NODE_ENV === 'production' ? '🥞' : stack,
   });
-}
-
-module.exports = {
-  errorHandler,
-  notFound,
 };
+
+export const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);

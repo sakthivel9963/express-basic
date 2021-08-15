@@ -1,4 +1,4 @@
-class ExampleController {
+export default class ExampleController {
   static async save(req, res, next) {
     try {
       res.json({
@@ -10,5 +10,3 @@ class ExampleController {
     }
   }
 }
-
-module.exports = ExampleController;
