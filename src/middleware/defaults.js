@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'url';
-import path, { join } from 'path';
+import path from 'path';
 import logger from './winston';
 
 export const notFound = (req, res, next) => {
@@ -13,7 +13,9 @@ export const errorHandler = (error, req, res, next) => {
   console.error(error);
   const { message, stack } = error;
   const status = res.statusCode === 200 ? 500 : res.statusCode;
-  logger.error(`${status} - ${req.originalUrl} - ${message} - ${stack} `);
+  logger.error(
+    `${req._startTime} - ${req._remoteAddress} - ${status} - ${req.originalUrl} - ${message} - ${stack} `
+  );
   res.status(status).json({
     message,
     status,
